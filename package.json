@@ -12,7 +12,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JustSamuel/eslint-plugin-github-commit-hash.git"
+    "url": "git+https://github.com/JustSamuel/eslint-plugin-github-commit-hash.git"
   },
   "keywords": [
     "eslint",
