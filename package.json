@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-github-commit-hash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An ESLint plugin to ensure GitHub dependencies in package.json contain a commit hash.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
   ],
   "author": "Samuel Oosterholt",
   "peerDependencies": {
-    "eslint": ">=9.0.0"
+    "eslint": ">=8.56.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.10",
