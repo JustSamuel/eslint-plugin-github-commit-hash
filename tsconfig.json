@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "lib": ["es2018", "dom", "esnext"]
+  },
+  "include": ["lib/**/*.ts", "tests/**/*.ts", "index.ts"]
+}

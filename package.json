@@ -1,0 +1,33 @@
+{
+  "name": "eslint-plugin-github-commit-hash",
+  "version": "1.0.0",
+  "description": "An ESLint plugin to ensure GitHub dependencies in package.json contain a commit hash.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/tests/check-git-commit-hash.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustSamuel/eslint-plugin-github-commit-hash.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin"
+  ],
+  "author": "Samuel Oosterholt",
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.12",
+    "eslint": "^9.3.0",
+    "jsonc-eslint-parser": "^2.4.0",
+    "typescript": "^5.4.5"
+  }
+}
