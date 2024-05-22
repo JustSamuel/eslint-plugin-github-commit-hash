@@ -18,15 +18,15 @@ const rule = {
             "Program > JSONExpressionStatement > JSONObjectExpression > JSONProperty > JSONObjectExpression"(node) {
                 const dependencies = node.properties.reduce((acc, prop) => {
                     if (prop.key.type === 'JSONLiteral' && prop.value.type === 'JSONLiteral') {
-                        acc[prop.key.value] = prop.value.value;
+                        acc[prop.key.value] = { value: prop.value.value, loc: prop.value.loc };
                     }
                     return acc;
                 }, {});
-                Object.entries(dependencies).forEach(([name, version]) => {
+                Object.entries(dependencies).forEach(([name, { value: version, loc }]) => {
                     const githubRepoPattern = /^github:.*#\w+$/;
                     if (version.startsWith('github:') && !githubRepoPattern.test(version)) {
                         context.report({
-                            loc: { line: 1, column: 0 }, // Adjust this location as needed
+                            loc,
                             message: `Dependency "${name}" must contain a commit hash in its version "${version}"`,
                         });
                     }

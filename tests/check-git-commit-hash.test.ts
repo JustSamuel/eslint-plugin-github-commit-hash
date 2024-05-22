@@ -1,9 +1,9 @@
-import { RuleTester } from 'eslint';
+import {RuleTester} from 'eslint';
 import rule from '../lib/rules/check-git-commit-hash';
 
 import type * as ESTree from "estree";
-import { AST, Rule, SourceCode } from "eslint";
-import { AST as JsonAST, RuleListener } from "jsonc-eslint-parser";
+import {AST, Rule, SourceCode} from "eslint";
+import {AST as JsonAST, RuleListener} from "jsonc-eslint-parser";
 // tslint:disable-next-line
 const jsonParser = require('jsonc-eslint-parser');
 
@@ -36,10 +36,13 @@ export interface PackageJsonRuleContext<Options extends unknown[] = unknown[]>
 
 export interface PackageJsonRuleModule<Options extends unknown[] = unknown[]> {
   create(context: PackageJsonRuleContext<Options>): RuleListener;
+
   meta: Rule.RuleMetaData;
 }
+
 export interface PackageJsonRuleModule<Options extends unknown[] = unknown[]> {
   create(context: PackageJsonRuleContext<Options>): RuleListener;
+
   meta: Rule.RuleMetaData;
 }
 
@@ -117,7 +120,13 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
         }
       }`,
       filename: 'package.json',
-      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+      errors: [
+        {
+          message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+          line: 3,
+          column: 28
+        },
+      ]
     },
     {
       code: `{
@@ -127,7 +136,13 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
         }
       }`,
       filename: 'package.json',
-      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+      errors: [
+        {
+          message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+          line: 3,
+          column: 28
+        }
+      ]
     },
     {
       code: `{
@@ -139,7 +154,13 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
         }
       }`,
       filename: 'package.json',
-      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+      errors: [
+        {
+          message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+          line: 3,
+          column: 28
+        }
+      ]
     },
     {
       code: `{
@@ -151,7 +172,13 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
         }
       }`,
       filename: 'package.json',
-      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+      errors: [
+        {
+          message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+          line: 6,
+          column: 28
+        }
+      ]
     }
   ]
 });

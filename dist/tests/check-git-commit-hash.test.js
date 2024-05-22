@@ -68,7 +68,13 @@ exports.ruleTester.run('check-git-commit-hash', check_git_commit_hash_1.default,
         }
       }`,
             filename: 'package.json',
-            errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+            errors: [
+                {
+                    message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+                    line: 3,
+                    column: 28
+                },
+            ]
         },
         {
             code: `{
@@ -78,7 +84,13 @@ exports.ruleTester.run('check-git-commit-hash', check_git_commit_hash_1.default,
         }
       }`,
             filename: 'package.json',
-            errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+            errors: [
+                {
+                    message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+                    line: 3,
+                    column: 28
+                }
+            ]
         },
         {
             code: `{
@@ -90,7 +102,13 @@ exports.ruleTester.run('check-git-commit-hash', check_git_commit_hash_1.default,
         }
       }`,
             filename: 'package.json',
-            errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+            errors: [
+                {
+                    message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+                    line: 3,
+                    column: 28
+                }
+            ]
         },
         {
             code: `{
@@ -102,7 +120,13 @@ exports.ruleTester.run('check-git-commit-hash', check_git_commit_hash_1.default,
         }
       }`,
             filename: 'package.json',
-            errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+            errors: [
+                {
+                    message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"',
+                    line: 6,
+                    column: 28
+                }
+            ]
         }
     ]
 });
