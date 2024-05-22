@@ -6,7 +6,6 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node dist/tests/check-git-commit-hash.test.js",
     "prepublishOnly": "npm run build"
   },
   "license": "ISC",
@@ -18,6 +17,9 @@
     "eslint",
     "eslint-plugin",
     "eslintplugin"
+  ],
+  "files": [
+    "dist"
   ],
   "author": "Samuel Oosterholt",
   "peerDependencies": {

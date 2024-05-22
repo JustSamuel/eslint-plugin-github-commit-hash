@@ -14,7 +14,7 @@ const rule = {
     schema: [],
   },
   create(context: Rule.RuleContext): RuleListener {
-    if (!isPackageJson(context.getFilename())) {
+    if (!isPackageJson(context.filename)) {
       return {};
     }
 

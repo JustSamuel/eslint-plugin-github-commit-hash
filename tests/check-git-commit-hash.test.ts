@@ -67,7 +67,7 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
     {
       code: `{
         "dependencies": {
-          "@gewis/test": "github:GEWIS/test#123456"
+          "@package/test": "github:package/test#123456"
         }
       }`,
       filename: 'package.json',
@@ -75,7 +75,7 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
     {
       code: `{
         "dependencies": {
-          "@gewis/test": "github:GEWIS/test#abcd1234"
+          "@package/test": "github:package/test#abcd1234"
         }
       }`,
       filename: 'package.json',
@@ -83,7 +83,7 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
     {
       code: `{
         "devDependencies": {
-          "@gewis/test": "github:GEWIS/test#123456"
+          "@package/test": "github:package/test#123456"
         }
       }`,
       filename: 'package.json',
@@ -91,10 +91,10 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
     {
       code: `{
         "dependencies": {
-          "@gewis/test": "github:GEWIS/test#abcd1234"
+          "@package/test": "github:package/test#abcd1234"
         },
         "devDependencies": {
-          "@gewis/test": "github:GEWIS/test#123456"
+          "@package/test": "github:package/test#123456"
         }
       }`,
       filename: 'package.json',
@@ -102,7 +102,7 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
     {
       code: `{
         "devDependencies": {
-          "@gewis/test": "github:GEWIS/test#abcd1234"
+          "@package/test": "github:package/test#abcd1234"
         }
       }`,
       filename: 'package.json',
@@ -112,46 +112,46 @@ ruleTester.run('check-git-commit-hash', rule as PackageJsonRuleModule, {
     {
       code: `{
         "dependencies": {
-          "@gewis/test": "github:GEWIS/test",
-          "@gewis/good": "github:GEWIS/good#abcd1234"
+          "@package/test": "github:package/test",
+          "@package/good": "github:package/good#abcd1234"
         }
       }`,
       filename: 'package.json',
-      errors: [{ message: 'Dependency "@gewis/test" must contain a commit hash in its version "github:GEWIS/test"' }]
+      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
     },
     {
       code: `{
         "devDependencies": {
-          "@gewis/test": "github:GEWIS/test",
-          "@gewis/good": "github:GEWIS/good#abcd1234"
+          "@package/test": "github:package/test",
+          "@package/good": "github:package/good#abcd1234"
         }
       }`,
       filename: 'package.json',
-      errors: [{ message: 'Dependency "@gewis/test" must contain a commit hash in its version "github:GEWIS/test"' }]
-    },
-    {
-      code: `{
-        "dependencies": {
-          "@gewis/test": "github:GEWIS/test"
-        },
-        "devDependencies": {
-          "@gewis/test": "github:GEWIS/test#abcd1234"
-        }
-      }`,
-      filename: 'package.json',
-      errors: [{ message: 'Dependency "@gewis/test" must contain a commit hash in its version "github:GEWIS/test"' }]
+      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
     },
     {
       code: `{
         "dependencies": {
-          "@gewis/test": "github:GEWIS/test#abcd1234"
+          "@package/test": "github:package/test"
         },
         "devDependencies": {
-          "@gewis/test": "github:GEWIS/test"
+          "@package/test": "github:package/test#abcd1234"
         }
       }`,
       filename: 'package.json',
-      errors: [{ message: 'Dependency "@gewis/test" must contain a commit hash in its version "github:GEWIS/test"' }]
+      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
+    },
+    {
+      code: `{
+        "dependencies": {
+          "@package/test": "github:package/test#abcd1234"
+        },
+        "devDependencies": {
+          "@package/test": "github:package/test"
+        }
+      }`,
+      filename: 'package.json',
+      errors: [{ message: 'Dependency "@package/test" must contain a commit hash in its version "github:package/test"' }]
     }
   ]
 });
