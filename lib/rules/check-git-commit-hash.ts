@@ -28,7 +28,7 @@ const rule = {
         }, {} as { [key: string]: { value: string, loc: any } });
 
         Object.entries(dependencies).forEach(([name, { value: version, loc }]) => {
-          const githubRepoPattern = /^github:.*#\w+$/;
+          const githubRepoPattern = /^github:.*#[0-9a-fA-F]{40}$/;
           if (version.startsWith('github:') && !githubRepoPattern.test(version)) {
             context.report({
               loc,
